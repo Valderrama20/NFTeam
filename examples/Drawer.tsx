@@ -1,5 +1,5 @@
 import { navlinks } from '../constants'
-import CustomButton from './CustomButton'
+// import CustomButton from './CustomButton'
 
 type Props = {
   toggleDrawer: boolean
@@ -22,7 +22,7 @@ const Drawer = ({
         !toggleDrawer ? '-translate-y-[100vh]' : 'translate-y-0'
       } transition-all duration-700`}
     >
-      <ul className='mb-4'>
+      {/* <ul className='mb-4'>
         {navlinks.map((link) => (
           <li
             key={`${link.name}-drawer`}
@@ -47,13 +47,13 @@ const Drawer = ({
             </p>
           </li>
         ))}
-      </ul>
-      <CustomButton
+      </ul> */}
+      {/* <CustomButton
         btnType='button'
         title={address ? 'Create a campaign' : 'Connect'}
         bg={address ? 'bg-green-700' : 'bg-purple-600'}
         onClick={onBtnAction}
-      />
+      /> */}
     </div>
   )
 }
