@@ -1,3 +1,4 @@
+import useWallet from '../../hooks/useWallet';
 import style from './Login.module.css';
 
 type LoginType = {
@@ -5,6 +6,17 @@ type LoginType = {
 };
 
 const Login = ({ isOpen }: LoginType) => {
+  const { handleConnect, isLoading, isConnected } = useWallet();
+
+  const onConnect = async () => {
+    if (!isConnected) {
+      // CEDALIO SUBMIT USER DATA
+    }
+    await handleConnect();
+  };
+
+  const textConnect = isConnected ? 'Disconnect' : 'Connect Wallet';
+
   return isOpen ? (
     <form action="" className={style.form}>
       <div>
@@ -18,7 +30,9 @@ const Login = ({ isOpen }: LoginType) => {
         </div>
       </div>
       <div>
-        <input type="submit" />
+        <button type="button" onClick={onConnect}>
+          {isLoading ? 'Loading' : textConnect}
+        </button>
       </div>
     </form>
   ) : null;
