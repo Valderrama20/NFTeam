@@ -1,36 +1,12 @@
-## Getting Started
+## DOCUMENTACION NFT NOMBRE DE LA APP
 
-Create a project using this example:
+### Built With
 
-```bash
-npx thirdweb create --template vite-typescript-starter
-```
+This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-You can start editing the page by modifying `src/main.tsx`. The page auto-updates as you edit the file.
+- [Vite Js][Vite-url]
+- [Cedalio][Cedalio-url]
 
-On `src/index.tsx`, you'll find our `ThirdwebProvider` wrapping your app, this is necessary for our [hooks](https://portal.thirdweb.com/react) and
-[UI Components](https://portal.thirdweb.com/ui-components) to work.
+### CEDALIO SETUP
 
-### Deploy to IPFS
-
-Deploy a copy of your application to IPFS using the following command:
-
-```bash
-yarn deploy
-```
-
-## Learn More
-
-To learn more about thirdweb, Vite and React, take a look at the following resources:
-
-- [thirdweb React Documentation](https://docs.thirdweb.com/react) - learn about our React SDK.
-- [thirdweb TypeScript Documentation](https://docs.thirdweb.com/react) - learn about our JavaScript/TypeScript SDK.
-- [thirdweb Portal](https://docs.thirdweb.com/react) - check our guides and development resources.
-- [Vite Documentation](https://vitejs.dev/guide/) - learn about Vite features.
-- [React documentation](https://reactjs.org/) - learn React.
-
-You can check out [the thirdweb GitHub organization](https://github.com/thirdweb-dev) - your feedback and contributions are welcome!
-
-## Join our Discord!
-
-For any questions, suggestions, join our discord at [https://discord.gg/thirdweb](https://discord.gg/thirdweb).
+La configuracion de la base de datos de CEDALIO, se realizo para bases de datos individuales por usuario. Es decir, cada usuario que se conecta por primera vez, deploya una base de datos con sus datos a la red de Polygon Mumbai

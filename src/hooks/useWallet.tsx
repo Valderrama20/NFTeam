@@ -6,6 +6,7 @@ const useWallet = () => {
   const disconnect = useDisconnect();
   const connectWithMetamask = useMetamask();
   const address = useAddress();
+
   const shortAddress = address
     ? `${address.slice(0, 4)}...${address.slice(-4)}`
     : '';
@@ -27,7 +28,13 @@ const useWallet = () => {
     }
   };
 
-  return { handleConnect, shortAddress, address, isLoading, isConnected };
+  return {
+    handleConnect,
+    shortAddress,
+    address: address ?? '',
+    isLoading,
+    isConnected,
+  };
 };
 
 export default useWallet;

@@ -1,0 +1,7 @@
+type UserData {
+  id: UUID!
+  email: String!
+  fullname: String!
+  type: String!
+  status: String
+}

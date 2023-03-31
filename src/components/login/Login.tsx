@@ -1,14 +1,24 @@
 import useWallet from '../../hooks/useWallet';
 import { useState } from 'react';
 import style from './Login.module.css';
+import { UserType } from '../../types';
+import useCedalio from '../../hooks/useCedalio';
+import axios from 'axios';
+import { useSigner } from '@thirdweb-dev/react';
 
 type LoginType = {
   isOpen: boolean;
 };
 
 const Login = ({ isOpen }: LoginType) => {
-  const { handleConnect, isLoading, isConnected } = useWallet();
-  const [dataUser, setDataUser] = useState({ fullName: '', email: '' });
+  const { handleConnect, isLoading, isConnected, address } = useWallet();
+  const { requestDeployToGateway } = useCedalio({ address });
+  const signer = useSigner();
+
+  const [dataUser, setDataUser] = useState<UserType>({
+    fullName: '',
+    email: '',
+  });
 
   const setData = (data: React.ChangeEvent<HTMLInputElement>) => {
     setDataUser({ ...dataUser, [data.target.name]: data.target.value });
@@ -22,6 +32,43 @@ const Login = ({ isOpen }: LoginType) => {
   };
 
   const textConnect = isConnected ? 'Disconnect' : 'Connect Wallet';
+
+  const url = 'https://kod-nft-certificates.gateway.cedalio.dev/auth';
+  const handleAuth = async () => {
+    const response = await fetch(url, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = await response.json();
+
+    if (data.nonce && signer) {
+      const message = 'Firmar Por favor:';
+      const signature = await signer.signMessage(`${message}${data.nonce}`);
+      console.log('signature ', signature);
+
+      const body = {
+        message,
+        signature: signature.substring(2),
+        nonce: data.nonce,
+        account: address,
+      };
+
+      const response = await fetch(`${url}/verify`, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+      });
+      const token = await response.json();
+
+      console.log({ token });
+    }
+  };
 
   return isOpen ? (
     <form action="" className={style.form}>
@@ -39,6 +86,9 @@ const Login = ({ isOpen }: LoginType) => {
       <div>
         <button className={style.btn} type="button" onClick={onConnect}>
           {isLoading ? 'Loading' : textConnect}
+        </button>
+        <button onClick={handleAuth} type="button">
+          Auth
         </button>
       </div>
     </form>
