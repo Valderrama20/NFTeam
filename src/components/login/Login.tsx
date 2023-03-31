@@ -16,18 +16,16 @@ const setData = (data: React.ChangeEvent<HTMLInputElement>) => {
 }
   return isOpen ? (
     <form action="" className={style.form}>
-        <label htmlFor="">register</label>
+        <label className={style.rg}>Register</label>
       <div>
         <div className={style.input}>
-          <label htmlFor="">Full Name</label>
+          <label >Full Name:</label>
           <input type="text" name="fullName" onChange={setData}/>
         </div>   
         <div className={style.input}>
-          <label htmlFor="">Email</label>
+          <label >Email:</label>
           <input type="text" name="email" onChange={setData}/>
         </div>
-      </div>
-      <div >
         <input type="submit" className={style.btn} />
       </div>
     </form>
