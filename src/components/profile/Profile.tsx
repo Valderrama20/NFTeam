@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Cars from "./Cars"
 import style from "./Profile.module.css"
+import ModifiqueInfoUser from "../modifiqueInfoUser/ModifiqueInfoUser"
 
 
  const user = {
@@ -22,6 +23,7 @@ import style from "./Profile.module.css"
           }
     ]
 }
+
 const Profile = () => {
 
     const [curses, setCurses] = useState(true)
@@ -42,15 +44,16 @@ const Profile = () => {
                 <button onClick={() => setCurses(!curses)}>Cursos</button>
             </div>
         </div>
-        
+{/*         
         <div className={style.nfts}>
              {curses 
              ? user.curses.map(e => <Cars   data={e}/> )
              : user.certificates.map(e => <Cars   data={e}/>)
             }
-        </div>
+        </div> */}
        
      </div>
+     <ModifiqueInfoUser/> 
      
   </div>
 }
