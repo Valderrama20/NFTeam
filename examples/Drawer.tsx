@@ -1,20 +1,20 @@
-import { navlinks } from '../constants'
-import CustomButton from './CustomButton'
+import { navlinks } from '../constants';
+// import CustomButton from './CustomButton'
 
 type Props = {
-  toggleDrawer: boolean
-  activeLink: string
-  onNavigate: (link: string, name: string, disabled?: boolean) => void
-  onBtnAction: () => void
-}
+  toggleDrawer: boolean;
+  activeLink: string;
+  onNavigate: (link: string, name: string, disabled?: boolean) => void;
+  onBtnAction: () => void;
+};
 
 const Drawer = ({
   toggleDrawer,
   activeLink,
   onNavigate,
-  onBtnAction
+  onBtnAction,
 }: Props) => {
-  const address = '0xasdasdasfsdhjkl'
+  const address = '0xasdasdasfsdhjkl';
 
   return (
     <div
@@ -22,7 +22,7 @@ const Drawer = ({
         !toggleDrawer ? '-translate-y-[100vh]' : 'translate-y-0'
       } transition-all duration-700`}
     >
-      <ul className='mb-4'>
+      {/* <ul className='mb-4'>
         {navlinks.map((link) => (
           <li
             key={`${link.name}-drawer`}
@@ -47,15 +47,15 @@ const Drawer = ({
             </p>
           </li>
         ))}
-      </ul>
-      <CustomButton
+      </ul> */}
+      {/* <CustomButton
         btnType='button'
         title={address ? 'Create a campaign' : 'Connect'}
         bg={address ? 'bg-green-700' : 'bg-purple-600'}
         onClick={onBtnAction}
-      />
+      /> */}
     </div>
-  )
-}
+  );
+};
 
-export default Drawer
+export default Drawer;
