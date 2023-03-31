@@ -1,0 +1,18 @@
+
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.nav h3 {
+    margin: 20px 100px;
+}
+
+.nav button {
+    margin: 20px 100px;
+    padding: 10px 50px;
+    border-radius: 20px;
+}
