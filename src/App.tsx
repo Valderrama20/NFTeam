@@ -1,14 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 import { Home } from './pages';
-import style from './App.module.css'
+import Navbar from './components/navbar/Navbar';
 
 export default function App() {
   return (
     <div>
-      <nav className={style.nav}>
-        <h3>Logo</h3> 
-        <button>Wallet</button>
-      </nav>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>

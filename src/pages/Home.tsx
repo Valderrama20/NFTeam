@@ -11,11 +11,7 @@ import Login from '../components/login/Login';
 const Home = () => {
   const { user, isLoggedIn } = useUser();
 
-  return (
-    <div>
-      <ConnectWallet />
-    </div>
-  );
+  return <div></div>;
 };
 
 export default Home;
