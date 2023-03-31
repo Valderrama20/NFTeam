@@ -1,22 +1,27 @@
-import style from "./Login.module.css"
+import style from './Login.module.css';
 
-export default function () {
- 
-    
-    return <form action="" className={style.form}>
-        <div>  
-            <div className={style.input}>
-                <label htmlFor="">Full Name</label>
-               <input type="text" />
-            </div>
-            <div className={style.input}>
-                <label htmlFor="">Email</label>
-             <input type="text" />
-            </div>
+type LoginType = {
+  isOpen: boolean;
+};
+
+const Login = ({ isOpen }: LoginType) => {
+  return isOpen ? (
+    <form action="" className={style.form}>
+      <div>
+        <div className={style.input}>
+          <label htmlFor="">Full Name</label>
+          <input type="text" />
+        </div>   
+        <div className={style.input}>
+          <label htmlFor="">Email</label>
+          <input type="text" />
         </div>
-        <div>
-          <input type="submit" />
-        </div>
-     
-     </form>
-}
+      </div>
+      <div>
+        <input type="submit" />
+      </div>
+    </form>
+  ) : null;
+};
+
+export default Login;
