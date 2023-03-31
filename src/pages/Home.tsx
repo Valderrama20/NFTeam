@@ -5,6 +5,7 @@ import {
   useLogout,
   useUser,
 } from '@thirdweb-dev/react';
+import Login from '../components/login/Login';
 
 const Home = () => {
   const address = useAddress();
@@ -25,6 +26,8 @@ const Home = () => {
 
       <pre>Connected Wallet: {address}</pre>
       <pre>User: {user?.data || 'N/A'}</pre>
+
+        <Login/>
     </div>
   );
 };
