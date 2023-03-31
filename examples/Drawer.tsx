@@ -1,20 +1,20 @@
-import { navlinks } from '../constants'
+import { navlinks } from '../constants';
 // import CustomButton from './CustomButton'
 
 type Props = {
-  toggleDrawer: boolean
-  activeLink: string
-  onNavigate: (link: string, name: string, disabled?: boolean) => void
-  onBtnAction: () => void
-}
+  toggleDrawer: boolean;
+  activeLink: string;
+  onNavigate: (link: string, name: string, disabled?: boolean) => void;
+  onBtnAction: () => void;
+};
 
 const Drawer = ({
   toggleDrawer,
   activeLink,
   onNavigate,
-  onBtnAction
+  onBtnAction,
 }: Props) => {
-  const address = '0xasdasdasfsdhjkl'
+  const address = '0xasdasdasfsdhjkl';
 
   return (
     <div
@@ -55,7 +55,7 @@ const Drawer = ({
         onClick={onBtnAction}
       /> */}
     </div>
-  )
-}
+  );
+};
 
-export default Drawer
+export default Drawer;
