@@ -16,17 +16,17 @@ const GET_USER = gql`
 `;
 
 const Home = () => {
-  const { loading, error, data } = useQuery(GET_USER);
-  const [userData, setUserData] = useState('');
+  // const { loading, error, data } = useQuery(GET_USER);
+  // const [userData, setUserData] = useState('');
 
-  useEffect(() => {
-    if (data) setUserData(data.allUserDatas);
-  }, [data]);
+  // useEffect(() => {
+  //   if (data) setUserData(data.allUserDatas);
+  // }, [data]);
 
   // if (loading) return <p>Loading...</p>;
   // if (error) return <p>Error : {error.message}</p>;
 
-  console.log(userData);
+
   return <div className={style.father}>
     <div>
       <div className={style.container}>

@@ -1,12 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
-import { Home } from './pages';
+import { Home, Test, Profile } from './pages';
 import Navbar from './components/navbar/Navbar';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
-import Profile from './components/profile/Profile';
 
 export default function App() {
   const client = new ApolloClient({
-    uri: 'https://kod-nft-certificates.gateway.cedalio.dev/',
+    uri: import.meta.env.VITE__GRAPHQL_GATEWAY_BASE_URL,
     cache: new InMemoryCache({
       addTypename: false,
     }),
@@ -18,6 +17,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/test/:course" element={<Test />} />
         </Routes>
       </ApolloProvider>
     </div>

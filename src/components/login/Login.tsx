@@ -5,6 +5,7 @@ import { UserType } from '../../types';
 import useCedalio from '../../hooks/useCedalio';
 import { useSigner } from '@thirdweb-dev/react';
 import { handleAuth } from '../../apis';
+import useLocalStorage from '../../hooks/useLocalStorage';
 
 type LoginType = {
   isOpen: boolean;
@@ -12,7 +13,8 @@ type LoginType = {
 
 const Login = ({ isOpen }: LoginType) => {
   const { handleConnect, isLoading, isConnected, address } = useWallet();
-  const { requestDeployToGateway } = useCedalio({ address });
+  const [token, setToken] = useLocalStorage('token', '');
+  const { requestDeployToGateway } = useCedalio({ address, token });
   const signer = useSigner();
 
   const [dataUser, setDataUser] = useState<UserType>({
@@ -25,13 +27,21 @@ const Login = ({ isOpen }: LoginType) => {
   };
 
   const onConnect = async () => {
-    if (!isConnected) {
-      // CEDALIO SUBMIT USER DATA
-    }
     await handleConnect();
   };
 
-  const textConnect = isConnected ? 'Disconnect' : 'Connect Wallet';
+  const onAuth = async () => {
+    if (address && signer) {
+      const token = await handleAuth(signer!, address);
+      setToken(token);
+    }
+  };
+
+  const textGenerator = () => {
+    if (isLoading) return 'Connecting';
+    if (!isConnected) return 'Connect Wallet';
+    return 'Disconnect';
+  };
 
   return isOpen ? (
     <form action="" className={style.form}>
@@ -46,13 +56,15 @@ const Login = ({ isOpen }: LoginType) => {
           <input type="text" name="email" onChange={setData} />
         </div>
       </div>
-      <div>
+      <div className={style.btnContainer}>
         <button className={style.btn} type="button" onClick={onConnect}>
-          {isLoading ? 'Loading' : textConnect}
+          {textGenerator()}
         </button>
-        <button onClick={() => handleAuth(signer!, address)} type="button">
-          Auth
-        </button>
+        {!token && (
+          <button className={style.btn} type="button" onClick={onAuth}>
+            Sign Wallet
+          </button>
+        )}
       </div>
     </form>
   ) : null;

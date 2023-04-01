@@ -1,0 +1,22 @@
+.lineContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.lineBlack {
+  width: 296px;
+  height: 10px;
+  background: #000000;
+  border-radius: 10px;
+  z-index: 4;
+  margin-left: -5px;
+}
+
+.lineGray {
+  z-index: 3;
+  margin-left: -5px;
+  width: 296px;
+  height: 10px;
+  background: #c2c2c2;
+  border-radius: 10px;
+}
