@@ -1,5 +1,4 @@
 import { gql, useMutation } from '@apollo/client';
-import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 const CREATE_USER = gql`
@@ -44,6 +43,8 @@ const useCedalio = ({
   const [uri, setUri] = useState('');
   const [createUser, { data, loading, error }] = useMutation(CREATE_USER);
 
+  console.log({ token, address });
+
   async function requestDeployToGateway(address: string) {
     if (address) {
       const url = `${import.meta.env.VITE__GRAPHQL_GATEWAY_BASE_URL}/deploy`;
@@ -70,31 +71,25 @@ const useCedalio = ({
           Authorization: `Bearer ${token}`,
         },
       });
-      const data = await response.json();
+      const {
+        contract_address,
+        deployment_id,
+      }: { contract_address: string; deployment_id: string } =
+        await response.json();
 
       console.log({ data });
 
-      // axios
-      //   .post(url, payload)
-      //   .then(function (response: any) {
-      //     localStorage.setItem('deploymentId', response.data.deployment_id);
-      //     localStorage.setItem(
-      //       'contractAddress',
-      //       response.data.contract_address
-      //     );
-      //     localStorage.setItem('deployed', 'true');
-      //     setContractAddress(response.data.contract_address);
-      //     setDeployed(true);
+      localStorage.setItem('deploymentId', deployment_id);
+      localStorage.setItem('contractAddress', contract_address);
+      localStorage.setItem('deployed', 'true');
+      setContractAddress(contract_address);
+      setDeployed(true);
 
-      //     setUri(
-      //       `${String(import.meta.env.VITE__GRAPHQL_GATEWAY_BASE_URL)}/${
-      //         response.data.deployment_id
-      //       }/graphql`
-      //     );
-      //   })
-      //   .catch(function (error: any) {
-      //     console.log(error);
-      //   });
+      setUri(
+        `${String(
+          import.meta.env.VITE__GRAPHQL_GATEWAY_BASE_URL
+        )}/${deployment_id}/graphql`
+      );
     }
   }
 
