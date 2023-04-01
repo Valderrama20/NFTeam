@@ -1,0 +1,121 @@
+
+.body {
+    scrollbar-width: thin; 
+}
+
+.father {
+    height: 500px;
+   width: 720px;
+   background-color: white;
+   border: 2px solid rgb(207, 207, 207);
+   border-radius: 20px;
+   position: absolute;
+   top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+
+  overflow-y: scroll;
+}
+.father button:nth-child(1) {
+    background-color: black;
+    color: white;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    font-weight: 700;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.name {
+    padding: 20px 20px;
+    display: flex;
+}
+
+.name img {
+  background-color: black;
+  display: flex;
+  height: 200px;
+  width: 200px;
+  border-radius: 10px;
+  
+}
+
+.name h3{
+  margin-top: 0px;
+  padding: 0 30px;
+  font-size: 35px;
+  line-height: 25px;
+
+}
+
+
+.tests {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    width: 100%;
+    z-index: 0;
+    
+}
+.line {
+    position: relative;
+    width: 4px;
+    background-color: rgb(230, 230, 230);
+    left: 3.8%;
+    z-index: -1;
+}
+
+.left {
+    width: 10%;
+
+}
+
+.left div{
+    background-color: black;
+   
+    height: 50px;
+    width: 50px;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 20px 0;
+}
+
+.right {
+    width: 80%;
+}
+
+.progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    border-bottom: 3px solid rgb(232, 232, 232);
+    
+  }
+
+.progress p {
+
+   font-size: 20px;
+
+}
+
+.progress button {
+    height: 10px 50px;
+    font-size: 15px;
+    padding: 7px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: black;
+    margin-right: 20px;
+    color: white;
+}
+
+
