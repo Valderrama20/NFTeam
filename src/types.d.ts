@@ -18,3 +18,30 @@ export type CoursesType = {
   img: string;
   percentage: string;
 };
+
+export type QuestionCardType = {
+  label: string;
+  onAnswer: (answer: number) => void;
+  answer: number;
+  selectedAnswer: number | null;
+  correct: number;
+};
+
+export type Question = {
+  index: number;
+  question: string;
+  options: string[];
+  correct: number;
+};
+
+export type UserAnswerType = {
+  index: number;
+  option: number;
+};
+
+export type QuestionSectionType = {
+  onClick: () => void;
+  onAnswer: (answer: number) => void;
+  questionData: Question;
+  selectedAnswer: number | null;
+};

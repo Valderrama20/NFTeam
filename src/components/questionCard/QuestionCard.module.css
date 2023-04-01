@@ -1,0 +1,29 @@
+.question {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 10px;
+  gap: 10px;
+  width: 640px;
+  height: 41px;
+  left: 401px;
+  top: 356px;
+  cursor: pointer;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 10px;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.correct {
+  border: 1px solid #42ff00;
+}
+.incorrect {
+  border: 1px solid #fb0909;
+}

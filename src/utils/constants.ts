@@ -20,3 +20,48 @@ export const USER = {
     },
   ],
 };
+
+export const MODULE_ONE = [
+  {
+    index: 0,
+    question: '¿Cuál es el mecanismo de consenso de la blockchain de bitcoin?',
+    options: ['Proof Of Stake', 'Proof Of Work', 'Proof Of Humanity'],
+    correct: 1,
+  },
+  {
+    index: 1,
+    question: '¿Cuándo es el próximo halving?',
+    options: ['2024', '2025', '2026'],
+    correct: 0,
+  },
+  {
+    index: 2,
+    question: '¿Cuántos BTC se van a emitir como máximo?',
+    options: ['11.000.000', '16.000.000', '21.000.000'],
+    correct: 2,
+  },
+];
+export const MODULE_TWO = [
+  {
+    index: 0,
+    question: '¿En qué unidad se paga el gas de la red de Ethereum?',
+    options: ['Oro', 'Gwei', 'Dólares'],
+    correct: 1,
+  },
+  {
+    index: 1,
+    question: '¿Cuál es el mecanismo de consenso de Ethereum?',
+    options: ['POW', 'POP', 'POS'],
+    correct: 2,
+  },
+  {
+    index: 2,
+    question: '¿Cuál es la característica principal de Ethereum?',
+    options: [
+      'Es una plataforma de contratos inteligentes',
+      'Es una versión digital del dinero fiduciario',
+      'Rejuvenece la piel y fortalece pelo y uñas',
+    ],
+    correct: 0,
+  },
+];
