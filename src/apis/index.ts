@@ -1,7 +1,10 @@
 import { URL_CEDALIO } from '../utils/constants';
 import { Signer } from 'ethers';
 
-export const handleAuth = async (signer: Signer, address: string) => {
+export const handleAuth = async (
+  signer: Signer,
+  address: string
+): Promise<string> => {
   const response = await fetch(URL_CEDALIO, {
     method: 'POST',
     mode: 'cors',
@@ -30,5 +33,7 @@ export const handleAuth = async (signer: Signer, address: string) => {
       body: JSON.stringify(body),
     });
     const token = await response.json();
+    return token.token;
   }
+  return '';
 };

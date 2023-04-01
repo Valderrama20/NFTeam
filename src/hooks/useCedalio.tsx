@@ -1,5 +1,4 @@
 import { gql, useMutation } from '@apollo/client';
-import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 const CREATE_USER = gql`
@@ -29,14 +28,24 @@ const CREATE_USER = gql`
   }
 `;
 
-const useCedalio = ({ address }: { address: string }) => {
+type Value<T> = T | undefined;
+
+const useCedalio = ({
+  address,
+  token,
+}: {
+  address: string;
+  token: Value<string>;
+}) => {
   const [contractAddress, setContractAddress] = useState('');
   const [deployed, setDeployed] = useState(false);
   const [isDeploying, setIsDeploying] = useState(false);
   const [uri, setUri] = useState('');
   const [createUser, { data, loading, error }] = useMutation(CREATE_USER);
 
-  function requestDeployToGateway(address: string) {
+  console.log({ token, address });
+
+  async function requestDeployToGateway(address: string) {
     if (address) {
       const url = `${import.meta.env.VITE__GRAPHQL_GATEWAY_BASE_URL}/deploy`;
       const payload = {
@@ -47,35 +56,40 @@ const useCedalio = ({ address }: { address: string }) => {
                 email: String!
                 type: String!
                 status: String
-        
               }
              
               `,
         schema_owner: address,
         network: 'polygon:mumbai',
       };
+      const response = await fetch(url, {
+        method: 'POST',
+        mode: 'cors',
+        body: JSON.stringify(payload),
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const {
+        contract_address,
+        deployment_id,
+      }: { contract_address: string; deployment_id: string } =
+        await response.json();
 
-      axios
-        .post(url, payload)
-        .then(function (response: any) {
-          localStorage.setItem('deploymentId', response.data.deployment_id);
-          localStorage.setItem(
-            'contractAddress',
-            response.data.contract_address
-          );
-          localStorage.setItem('deployed', 'true');
-          setContractAddress(response.data.contract_address);
-          setDeployed(true);
+      console.log({ data });
 
-          setUri(
-            `${String(import.meta.env.VITE__GRAPHQL_GATEWAY_BASE_URL)}/${
-              response.data.deployment_id
-            }/graphql`
-          );
-        })
-        .catch(function (error: any) {
-          console.log(error);
-        });
+      localStorage.setItem('deploymentId', deployment_id);
+      localStorage.setItem('contractAddress', contract_address);
+      localStorage.setItem('deployed', 'true');
+      setContractAddress(contract_address);
+      setDeployed(true);
+
+      setUri(
+        `${String(
+          import.meta.env.VITE__GRAPHQL_GATEWAY_BASE_URL
+        )}/${deployment_id}/graphql`
+      );
     }
   }
 
