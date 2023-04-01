@@ -1,31 +1,59 @@
 import { useParams } from 'react-router-dom';
 import styles from '../styles/Test.module.css';
-import { useState } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import ProgressLine from '../components/progressLine/ProgressLine';
+import { MODULE_ONE, MODULE_TWO } from '../utils/constants';
+import { Question, UserAnswerType } from '../types';
+import QuestionContainer from '../components/questionConatiner/QuestionContainer';
 
 const Test = () => {
   const { course } = useParams();
   const [progress, setProgress] = useState(0);
+  const [test, setTest] = useState<Question[]>();
+
+  const actualQuestion = useMemo(() => {
+    if (test) return test[progress];
+  }, [progress, test]);
+  const [userAnswers, setUserAnswers] = useState<number[]>([]);
+  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (course === 'btc') setTest(MODULE_ONE);
+    if (course === 'eth') setTest(MODULE_TWO);
+  }, [course]);
 
   const updateProgress = () => {
     if (progress < 2) {
-      setProgress(progress + 1);
+      if (selectedAnswer !== null) {
+        setProgress(progress + 1);
+        setUserAnswers([...userAnswers, selectedAnswer]);
+        setSelectedAnswer(null);
+      }
     }
   };
+
+  const onUpdateAnswer = (answer: number) => {
+    if (selectedAnswer === null) {
+      setSelectedAnswer(answer);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <h2 style={{ margin: 0 }}>Evaluación - {course} </h2>
 
       {/* Progress Line */}
       <ProgressLine activeStep={progress} />
-
-      <div className={styles.question}>
-        <h2>
-          La diferencia entre rollup y un state channel es que el state channel
-          solo permite conectar 2 personas{' '}
-        </h2>
-      </div>
-      <button onClick={updateProgress}>AVANZAR</button>
+      {actualQuestion ? (
+        <QuestionContainer
+          questionData={actualQuestion}
+          onClick={updateProgress}
+          onAnswer={onUpdateAnswer}
+          selectedAnswer={selectedAnswer}
+        />
+      ) : (
+        <p>Modulo no encontrado</p>
+      )}
     </div>
   );
 };
