@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import Card from './Card';
-import style from './Profile.module.css';
-import ModifiqueInfoUser from '../modifiqueInfoUser/ModifiqueInfoUser';
-import { USER } from '../../utils/constants';
+import style from '../styles/Profile.module.css';
+import { USER } from '../utils/constants';
+import Card from '../components/profile/Card';
 
 const Profile = () => {
   const [courses, setCourses] = useState(true);
