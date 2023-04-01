@@ -6,7 +6,7 @@ import Profile from './components/profile/Profile';
 
 export default function App() {
   const client = new ApolloClient({
-    uri: 'https://kod-nft-certificates.gateway.cedalio.dev/',
+    uri: import.meta.env.VITE__GRAPHQL_GATEWAY_BASE_URL,
     cache: new InMemoryCache({
       addTypename: false,
     }),
