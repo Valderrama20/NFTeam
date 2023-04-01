@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { Home } from './pages';
+import { Home, Test } from './pages';
 import Navbar from './components/navbar/Navbar';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import Profile from './components/profile/Profile';
@@ -18,6 +18,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/test/:course" element={<Test />} />
         </Routes>
       </ApolloProvider>
     </div>
