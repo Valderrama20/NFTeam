@@ -3,6 +3,7 @@ import { Home } from './pages';
 import Navbar from './components/navbar/Navbar';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import useWallet from './hooks/useWallet';
+import Profile from './components/profile/Profile';
 
 export default function App() {
   const { address } = useWallet();
@@ -19,6 +20,7 @@ export default function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </ApolloProvider>
     </div>

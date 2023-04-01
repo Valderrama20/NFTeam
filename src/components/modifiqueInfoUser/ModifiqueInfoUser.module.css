@@ -1,0 +1,67 @@
+
+.setUser {
+   height: 500px  ;
+   width: 700px;
+   background-color: white;
+   border: 2px solid rgb(207, 207, 207);
+   border-radius: 20px;
+   position: absolute;
+   top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  padding: 20px;
+}
+.img {
+    padding: 20px;
+    display: flex;
+ flex-direction: row;
+}
+
+.img div {
+ height: 150px;
+ border-radius: 10px;
+ background-color: rgb(214, 214, 214);
+ margin: 10px;
+ 
+ 
+}
+
+.one {
+  width: 30%;
+}
+.two {
+    width: 100%;
+  }
+
+.data div{
+    display: flex;
+    flex-direction: column  ;
+    margin: 0 30px;
+}
+
+.data div label {
+    font-weight: 600;
+    line-height: 40px;
+
+}
+
+.data div input {
+    height: 20px; 
+    padding: 5px   ;
+    border: 2px solid rgb(207, 207, 207);
+    border-radius: 5px;
+}
+
+.data button {
+ background-color: black;
+ color: white;
+ padding: 7px 0;
+ margin: 20px 0;
+ border-radius: 5px;
+ border: none;
+ font-size: 15px;
+
+}
+
