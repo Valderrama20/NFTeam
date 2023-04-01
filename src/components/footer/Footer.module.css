@@ -1,0 +1,81 @@
+
+.father {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.one p{
+   font-size: 30px;
+   font-weight:500;
+   line-height: 0;
+}
+
+.two {  
+    text-align: center;
+    background-color: black;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.btn {
+    padding: 5px 10px;
+    background-color: white;
+    display: inline-block;
+    border-radius: 10px;
+    padding-right: 50px;
+    position: relative;
+
+}
+
+.btn input{
+    border: none;
+    height: 30px;
+    width: 500px;
+    font-weight: 700;
+    font-size: 20px ;
+    padding: 0 10px ;
+    color: rgb(95, 95, 95);
+    
+    }
+.btn input:focus{
+    outline: none;;
+        }
+
+.btn button{
+  border: none;
+  background: black;
+  height: 35px;
+  width: 45px;
+  position: absolute;
+  right:5px;
+  top: 3px;
+color: white; 
+font-size: 20px;
+border-radius: 5px;
+}
+
+.three {
+    display: flex;
+    background-color:black;
+    height: 200px;
+    width: 100%;
+    margin-top: 1px;
+    justify-content: center;
+    
+}
+
+.three div{
+  padding: 20px 30px;
+  color: white;
+}
+.three ul {
+  list-style: none;
+  padding-left: 0;
+}
+.three p {
+    font-weight: 800;
+}
+
+
+
+

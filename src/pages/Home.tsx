@@ -1,5 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 import { useEffect, useState } from 'react';
+import Footer from '../components/footer/Footer';
 
 const GET_USER = gql`
   query GetUSER {
@@ -21,11 +22,14 @@ const Home = () => {
     if (data) setUserData(data.allUserDatas);
   }, [data]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error : {error.message}</p>;
+  // if (loading) return <p>Loading...</p>;
+  // if (error) return <p>Error : {error.message}</p>;
 
   console.log(userData);
-  return <div>IS WORKING</div>;
+  return <div>
+   
+   <Footer/>
+  </div>;
 };
 
 export default Home;
