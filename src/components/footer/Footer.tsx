@@ -7,7 +7,7 @@ const Footer = () => {
      </div>
      <div className={style.two}>
         <div className={style.btn}>
-              <input type="text" placeholder='Cual es tu email'/>
+              <input type="text" placeholder='¿Cual es tu email?'/>
               <button>🡲</button>
         </div>
      </div>

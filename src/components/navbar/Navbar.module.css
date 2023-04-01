@@ -3,14 +3,19 @@
   justify-content: space-between;
   align-items: center;
   border: 1px solid black;
+  height: 76px
 }
 
 .nav h3 {
-  margin: 20px 100px;
+  margin: 0px 100px;
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 52px;
+  color: #4CCBAB;
 }
 
 .nav button {
-  margin: 20px 100px;
+  margin: 0px 100px;
   padding: 10px 50px;
   border-radius: 20px;
 }
