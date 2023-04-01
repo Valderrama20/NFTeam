@@ -1,8 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
-import { Home, Test } from './pages';
+import { Home, Test, Profile } from './pages';
 import Navbar from './components/navbar/Navbar';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
-import Profile from './components/profile/Profile';
 
 export default function App() {
   const client = new ApolloClient({
