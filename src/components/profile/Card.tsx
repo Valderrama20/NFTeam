@@ -19,7 +19,12 @@ const Card = ({ img, name, percentage }: CoursesType) => {
       <div className={style.data}>
         <h3>{name}</h3>
       </div>
-      <label htmlFor="">{percentage}</label>
+      <div className={style.progress}>
+      <div className={style.progress_bar}>
+     <div className={style.progresss} style={{ width: `${percentage}%` }}></div>
+     </div> 
+     <label htmlFor="">{percentage}%</label>
+    </div>
     </div>
     {viewProgress && <Progress set={set}/>}
     </div>
