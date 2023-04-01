@@ -22,7 +22,7 @@ const Profile = () => {
       </div>
       <div className={style.certificates}>
         <div className={style.barra}>
-          <p>{titleText}</p>
+          <p className={style.p}>{titleText}</p>
           <div className={style.btn}>
             <button onClick={() => selectCourses(false)}>Certificados</button>
             <button onClick={() => selectCourses(true)}>Cursos</button>
@@ -40,7 +40,7 @@ const Profile = () => {
           ))}
         </div>
       </div>
-      <ModifiqueInfoUser />
+      {/* <ModifiqueInfoUser /> */}
     </div>
   );
 };
