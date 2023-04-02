@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Home, Test, Profile } from './pages';
 import Navbar from './components/navbar/Navbar';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
+import Admin from './pages/Admin';
 
 export default function App() {
   const client = new ApolloClient({
@@ -17,6 +18,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="/test/:course" element={<Test />} />
         </Routes>
       </ApolloProvider>

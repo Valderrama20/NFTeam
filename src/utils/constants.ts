@@ -51,6 +51,21 @@ export const CERTIFICATES = [
   },
 ];
 
+export const MODULES = [
+  {
+    name: 'Conceptos Basicos',
+    img: 'https://ipfs.io/ipfs/QmbaK1X2XfyJf7BmJJLiT3FneGUKMwjR7AHJ6G5PbKSeo2/0.png',
+  },
+  {
+    name: 'Bitcoin y Ethereum',
+    img: 'https://ipfs.io/ipfs/QmbaK1X2XfyJf7BmJJLiT3FneGUKMwjR7AHJ6G5PbKSeo2/1.png',
+  },
+  {
+    name: 'Blockchain',
+    img: 'https://ipfs.io/ipfs/QmbaK1X2XfyJf7BmJJLiT3FneGUKMwjR7AHJ6G5PbKSeo2/2.png',
+  },
+];
+
 export const MODULE_ONE = [
   {
     index: 0,
