@@ -1,10 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import style from '../styles/Profile.module.css';
-import { USER } from '../utils/constants';
+import { CONTRACT_DYNAMIC, USER } from '../utils/constants';
 import Card from '../components/profile/Card';
+import { ethers } from 'ethers';
+import ABI from '../utils/IntroCrypto.json';
+import useLocalStorage from '../hooks/useLocalStorage';
+import useWallet from '../hooks/useWallet';
 
 const Profile = () => {
   const [courses, setCourses] = useState(true);
+  const { address } = useWallet();
+  const [userData, setUserData] = useLocalStorage('user', undefined);
 
   const selectCourses = (isCourse: boolean) => {
     setCourses(isCourse);
@@ -12,7 +18,7 @@ const Profile = () => {
 
   const titleText = courses ? 'Cursos' : 'Certificados';
   const selectedList = courses ? USER.courses : USER.certificates;
-  return (
+  return address ? (
     <div>
       <div className={style.logo}></div>
       <div className={style.user}>
@@ -35,12 +41,17 @@ const Profile = () => {
               img={course.img}
               name={course.name}
               percentage={course.percentage}
+              abi={course.abi}
+              contract={course.contract}
+              address={address}
             />
           ))}
         </div>
       </div>
       {/* <ModifiqueInfoUser /> */}
     </div>
+  ) : (
+    <div>Loading...</div>
   );
 };
 
