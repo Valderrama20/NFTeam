@@ -97,3 +97,26 @@ export const DATA_CARD = [
     text: "Los NFTs dinámicos son valiosos y únicos, lo que los convierte en una excelente manera de demostrar habilidades y conocimientos."
   }
 ]
+
+export const CARRUSEL = [
+  {
+title:"UX write", 
+company:"Educación IT"
+  },
+  {
+    title:"Cloud computing", 
+    company:"Amazon AWS"
+      },
+      {
+        title:"Introducción a Solidity", 
+        company:"Solow"
+          },
+          {
+            title:"Desarrollo web", 
+            company:"Edge"
+              },
+              
+          
+      
+  
+]

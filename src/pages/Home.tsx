@@ -36,8 +36,12 @@ const Home = () => {
          
         <div className={style.detailsTwo}>
         <h3>Revisa tu <br /> progreso</h3>
-         <img src="https://res.cloudinary.com/dlwurkglp/image/upload/v1680383739/Dise%C3%B1o_sin_t%C3%ADtulo_yjs39h.gif" alt="" />
+         <img src="https://res.cloudinary.com/dlwurkglp/image/upload/v1680458534/Dise%C3%B1o_sin_t%C3%ADtulo_1_e1vcde.gif" alt="" />
      </div>
+     </div>
+     <div className={style.carrusel}>
+      <h3>Las posibilidades <br /> son infinitas</h3>
+      <img src="https://res.cloudinary.com/dlwurkglp/image/upload/v1680461073/photo1680461012_nvfvqt.jpg" alt="" />
      </div>
      
    <Footer/>
