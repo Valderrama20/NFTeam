@@ -20,7 +20,7 @@ const Admin = () => {
       <div className={style.logo}></div>
       <div className={style.user}>
         <img src={USER.img} alt="profile img" />
-        <label htmlFor="">{`${USER.fullname}`}</label>
+        <label htmlFor="">Admin</label>
       </div>
       <div className={style.certificates}>
         <div className={style.barra}>
