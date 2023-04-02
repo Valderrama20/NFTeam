@@ -23,7 +23,7 @@ const Admin = () => {
         </div>
 
         <div className={style.nfts}>
-          {modules.map((module, i) => (
+          {modules.map((module: any, i: number) => (
             <Module name={module.name} img={module.img}></Module>
           ))}
         </div>
