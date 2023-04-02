@@ -92,3 +92,4 @@ Hook que maneja el deploy utilizando el servidor de cedalio para crear una base 
 <img src="./example/b.png" >
 <img src="./example/c.png" >
 <img src="./example/d.png" >
+<img src="./example/e.png" >
