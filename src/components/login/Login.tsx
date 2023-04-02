@@ -19,7 +19,7 @@ type LoginType = {
  * @return {token} token es un codigo devuelto por el server de Cedalio para poder deployar una base de datos.
  */
 
-const Login = ({ isOpen }: LoginType) => {
+const Login = ({ isOpen ,setOpen}: any) => {
   const { handleConnect, isLoading, isConnected, address } = useWallet();
   const [token, setToken] = useLocalStorage('token', '');
   const [fullName, setFullName] = useLocalStorage("fullName","")
@@ -55,15 +55,17 @@ const Login = ({ isOpen }: LoginType) => {
   };
 
   return isOpen ? (
-    <form action="" className={style.form}>
-      <label htmlFor="">register</label>
+    <div className={style.fondo}>
+    <div className={style.form}>
+      <button className={style.button} onClick={setOpen}>X</button>
+      <label className={style.title}>register</label>
       <div>
         <div className={style.input}>
-          <label htmlFor="">Full Name</label>
+          <label >Full Name</label>
           <input type="text" name="fullName" onChange={setName} />
         </div>
         <div className={style.input}>
-          <label htmlFor="">Email</label>
+          <label >Email</label>
           <input type="text" name="email" onChange={setEmail} />
         </div>
       </div>
@@ -77,7 +79,8 @@ const Login = ({ isOpen }: LoginType) => {
           </button>
         )}
       </div>
-    </form>
+    </div>
+    </div>
   ) : null;
 };
 
