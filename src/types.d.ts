@@ -17,6 +17,9 @@ export type CoursesType = {
   name: string;
   img: string;
   percentage: string;
+  abi: any;
+  contract: string;
+  address: string;
 };
 
 export type QuestionCardType = {
