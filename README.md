@@ -4,10 +4,21 @@
 
 Proof of progress es un proyecto basado en NFTs dinamicos que se van modificando a medida que el estudiante progresa en su camino de aprendizaje. Nuestro servidor aloja las evaluaciones de la plataforma educativa y el estudiante, al inscibirse en un curso, mintea automaticamente un NFT que servira para trackear su progreso durante el mismo. Cada hito en el camino educativo dispara una modificacion de la imagen del NFT, permitiendo reflejar en tiempo real los conocimientos que va adquiriendo el estudiante.
 
+El proyecto se encuentra deployado en vercel [link](https://nf-team.vercel.app/)
+
 ### Requisitos para utilizar el proyecto
 
 - Metamask instalado como extension - [metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=es)
 - Red de Polygon Mumbai - [configuracion](https://www.datawallet.com/crypto/add-polygon-mumbai-to-metamask)
+
+### Arquitectura del proyecto
+
+- apis: Carpeta para manejo de pedidos a servidores y servicios externos
+- assets: Images
+- components: Componentes reutilizables
+- graphql: estructura de querys y el type para la base de datos en Cedalio
+- hooks: Utilidades para obtener data de manera mas facil
+- utils: La famosa carpeta para obtener constantes y los abi para el smart contract
 
 ### Requisiton para correr el proyecto
 
