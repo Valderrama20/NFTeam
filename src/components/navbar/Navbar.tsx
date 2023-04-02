@@ -10,8 +10,8 @@ const Navbar = () => {
   return (
     <>
       <nav className={style.nav}>
-        <h3>Logo</h3>
-        <button onClick={toggleModal}>Wallet</button>
+        <h3>DynamiProof</h3>
+        <button onClick={toggleModal}>Conectar Wallet</button>
       </nav>
 
       {/* MODAL */}

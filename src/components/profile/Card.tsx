@@ -98,7 +98,15 @@ const Card = ({
         <div className={style.data}>
           <h3>{isLoading ? 'Loading...' : isActive ? name : `Mint ${name}`}</h3>
         </div>
-        <label htmlFor="">{percentage}</label>
+        <div className={style.progress}>
+          <div className={style.progress_bar}>
+            <div
+              className={style.progresss}
+              style={{ width: `${percentage}%` }}
+            ></div>
+          </div>
+          <label htmlFor="">{percentage}%</label>
+        </div>
       </div>
       {isActive && viewProgress && <Progress set={set} />}
     </div>
