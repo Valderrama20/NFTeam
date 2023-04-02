@@ -1,25 +1,20 @@
 import { useState, useEffect } from 'react';
 import style from '../styles/Profile.module.css';
-import { USER } from '../utils/constants';
-import Card from '../components/profile/Card';
-import useWallet from '../hooks/useWallet';
+import { MODULES, USER_IMG } from '../utils/constants';
 import Module from '../components/module/Module';
 
 const Admin = () => {
-  const [courses, setCourses] = useState<any>([]);
   const [modules, setModules] = useState<any>([]);
-  const { address } = useWallet();
 
   useEffect(() => {
-    setCourses(USER.courses);
-    setModules(USER.modules)
+    setModules(MODULES);
   }, []);
 
   return (
     <div>
       <div className={style.logo}></div>
       <div className={style.user}>
-        <img src={USER.img} alt="profile img" />
+        <img src={USER_IMG} alt="profile img" />
         <label htmlFor="">Admin</label>
       </div>
       <div className={style.certificates}>
