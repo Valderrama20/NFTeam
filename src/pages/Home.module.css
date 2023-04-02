@@ -1,7 +1,8 @@
 
 
 .title {
-    background-color: black;
+    background: rgb(52,203,212);
+background: linear-gradient(90deg, rgba(52,203,212,1) 9%, rgba(76,203,171,1) 96%);
     color: white;
     
     
@@ -22,7 +23,8 @@
 }
 
 .detailsTwo {
-    background: black;
+    background: rgb(76,203,172);
+    background: linear-gradient(90deg, rgba(76,203,172,1) 0%, rgba(52,203,212,1) 79%);
     height: auto;
     display: flex;
     align-items: center;
@@ -36,6 +38,8 @@
 
 .detailsTwo h3 {
  font-size: 40px;
+ font-weight: 400;
+ line-height: 50px;
  color: white;
 }
 

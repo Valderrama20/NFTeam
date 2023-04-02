@@ -10,9 +10,12 @@
    line-height: 0;
 }
 
-.two {  
+.two { 
+    
+    background: rgb(52,203,212);
+background: linear-gradient(90deg, rgba(52,203,212,1) 35%, rgba(76,203,172,1) 90%);
+
     text-align: center;
-    background-color: black;
     padding: 20px 0;
     width: 100%;
 }
@@ -55,8 +58,10 @@ border-radius: 5px;
 }
 
 .three {
+
+    background: rgb(52,203,212);
+background: linear-gradient(90deg, rgba(52,203,212,1) 35%, rgba(76,203,172,1) 90%);
     display: flex;
-    background-color:black;
     height: 200px;
     width: 100%;
     margin-top: 1px;

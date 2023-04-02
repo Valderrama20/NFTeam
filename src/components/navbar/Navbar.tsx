@@ -11,7 +11,7 @@ const Navbar = () => {
     <>
       <nav className={style.nav}>
         <h3>DynamiProof</h3>
-        <button onClick={toggleModal}>Wallet</button>
+        <button onClick={toggleModal}>Conectar Wallet</button>
       </nav>
 
       {/* MODAL */}

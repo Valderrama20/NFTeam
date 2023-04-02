@@ -14,6 +14,7 @@ const Card = ({ img, name, percentage }: CoursesType) => {
 
   return (
     <div>
+    <div>
       <div className={style.card} onClick={set}>
         <img src={img} alt="" />
         <div className={style.data}>
@@ -21,7 +22,6 @@ const Card = ({ img, name, percentage }: CoursesType) => {
         </div>
         <label htmlFor="">{percentage}</label>
       </div>
-<<<<<<< HEAD
       <div className={style.progress}>
       <div className={style.progress_bar}>
      <div className={style.progresss} style={{ width: `${percentage}%` }}></div>
@@ -30,9 +30,6 @@ const Card = ({ img, name, percentage }: CoursesType) => {
     </div>
     </div>
     {viewProgress && <Progress set={set}/>}
-=======
-      {viewProgress && <Progress set={set} />}
->>>>>>> 4b8e705f28edd551f882bfd452ea0f18f5061236
     </div>
   );
 };
