@@ -4,7 +4,7 @@ import style from './Card.module.css';
 import Progress from '../progress/Progress';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import { ethers } from 'ethers';
-import { SERVER } from '../../utils/constants';
+import { RPC_URL, SERVER, SERVER_MINT } from '../../utils/constants';
 import axios from 'axios';
 
 const Card = ({
@@ -17,34 +17,36 @@ const Card = ({
 }: CoursesType) => {
   const [viewProgress, setViewProgress] = useState(false);
   const [isActive, setIsActive] = useLocalStorage('isactive', false);
+  const [IPSFValue, setIPSFValue] = useLocalStorage<{
+    level: string;
+    img: string;
+  }>('ipsf', { level: '', img: '' });
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const getData = async () => {
-      if (address) {
-        const rpcUrl = 'https://rpc-mumbai.maticvigil.com'; // Url de la red Mumbai
-        const provider = new ethers.providers.JsonRpcProvider(rpcUrl);
-        const courseContract = new ethers.Contract(contract, abi, provider);
-        console.log({ courseContract });
-        // balanceOf Me dice si el usuario inicio Curso o no. Recibe un address como parameter
-        const startedCourse = await courseContract.balanceOf(address);
-        console.log({ startedCourse: startedCourse.toString() });
-        if (startedCourse.toString() === '1') {
-          console.log('OBTENIENDO USUARIO IPSF');
-          //  Metodo para obtener token_id con el cual vamos a obtener la data del IPSF
-          const owner_Id = await courseContract.ownerOf(address);
-          console.log({ owner_Id: owner_Id.toString() });
-          // tokenURI para obtener el endpoint de ipsf con la info del usuario en el curso. Recibe un tokenId como parameter
-          const ipsfEndpoint = await courseContract.tokenURI(
-            owner_Id.toString()
-          );
-          const data = await fetch(ipsfEndpoint);
-          const user = await data.json();
-          console.log({ user });
-          setIsActive(true);
+      try {
+        if (address) {
+          // Url de la red Mumbai
+          const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
+          const courseContract = new ethers.Contract(contract, abi, provider);
+          // balanceOf Me dice si el usuario inicio Curso o no. Recibe un address como parameter
+          const startedCourse = await courseContract.balanceOf(address);
+          if (startedCourse.toString() === '1') {
+            //  Metodo para obtener token_id con el cual vamos a obtener la data del IPSF
+            const token_id = await courseContract.tokenId(address);
+            // tokenURI para obtener el endpoint de ipsf con la info del usuario en el curso. Recibe un tokenId como parameter
+            const ipsfEndpoint = await courseContract.tokenURI(token_id);
+            const { data } = await axios.get(ipsfEndpoint);
+            setIPSFValue({ level: data.name, img: data.image });
+            setIsActive(true);
+          }
         }
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+        setIsLoading(false);
       }
-      setIsLoading(false);
     };
     getData();
   }, [address]);
@@ -59,34 +61,28 @@ const Card = ({
       if (isActive) {
         setViewProgress(!viewProgress);
       } else {
-        console.log('INICIO MINT');
         const payload = {
           address,
           courseAddress: contract,
         };
-        console.log({ payload });
-
-        try {
-          const response = await fetch(
-            'https://abf5-179-43-81-54.sa.ngrok.io/progress/mint',
-            {
-              method: 'POST',
-              mode: 'no-cors',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(payload),
-            }
-          );
-          const data = await response.json();
-
-          console.log({ data });
-        } catch (error) {
-          console.log(error);
+        const result = await axios.post(`${SERVER}/mint`, payload);
+        if (result.status === 200) {
+          // Url de la red Mumbai
+          const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
+          const courseContract = new ethers.Contract(contract, abi, provider);
+          // balanceOf Me dice si el usuario inicio Curso o no. Recibe un address como parameter
+          const startedCourse = await courseContract.balanceOf(address);
+          if (startedCourse.toString() === '1') {
+            //  Metodo para obtener token_id con el cual vamos a obtener la data del IPSF
+            const token_id = await courseContract.tokenId(address);
+            // tokenURI para obtener el endpoint de ipsf con la info del usuario en el curso. Recibe un tokenId como parameter
+            const ipsfEndpoint = await courseContract.tokenURI(token_id);
+            const { data } = await axios.get(ipsfEndpoint);
+            setIPSFValue({ level: data.name, img: data.image });
+            setIsActive(true);
+            setViewProgress(true);
+          }
         }
-
-        // setIsActive(true);
-        // setViewProgress(true);
       }
     }
   };
@@ -108,7 +104,9 @@ const Card = ({
           <label htmlFor="">{percentage}%</label>
         </div>
       </div>
-      {isActive && viewProgress && <Progress set={set} />}
+      {isActive && viewProgress && (
+        <Progress image={IPSFValue?.img} level={IPSFValue?.level} set={set} />
+      )}
     </div>
   );
 };

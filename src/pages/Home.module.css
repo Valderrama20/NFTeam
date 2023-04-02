@@ -1,6 +1,6 @@
 
 .container {
-    height: calc(100vh - 60px);
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -10,6 +10,8 @@
 background: linear-gradient(90deg, rgba(52,203,212,1) 9%, rgba(76,203,171,1) 96%);
     color: white;
     display: flex;
+    height: 100%;
+    align-items: center;
     
     
    
@@ -18,23 +20,43 @@ background: linear-gradient(90deg, rgba(52,203,212,1) 9%, rgba(76,203,171,1) 96%
 .title div {
     align-items: center;
     text-align: start;
-    padding: 55px 0 55px 100px;
+    padding: 55px 0 55px 50px;
 }
 
 .title h1 {
     margin: 0;
-    /* padding: 70px 0px 70px 120px; */
+    margin-top: 50px;
     line-height: 60px;
     font-weight: 600;
-    font-size: 56px;
+    font-size: 60px;
 
 }
+
+.title p {
+    font-size: 20px;
+}
+
+.title img {
+    height: 260px;
+    margin-top: 50px ;
+    padding-right: 100px;
+    
+}
+
+.characteristics h3 {
+   text-align: center;
+   font-size: 30px;
+   color: #4CCBAB
+}
+
 
 .details {
     flex: 1;
     display: flex;
     justify-content: center;
+    padding: 0 0 80px 0;
 }
+
 
 .detailsTwo {
     background: rgb(76,203,172);
