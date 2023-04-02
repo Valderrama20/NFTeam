@@ -22,6 +22,11 @@ export type CoursesType = {
   address: string;
 };
 
+export type ModuleType = {
+  name: string,
+  img: string
+}
+
 export type QuestionCardType = {
   label: string;
   onAnswer: (answer: number) => void;
