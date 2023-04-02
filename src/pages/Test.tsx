@@ -3,7 +3,7 @@ import styles from '../styles/Test.module.css';
 import { useState, useEffect, useMemo } from 'react';
 import ProgressLine from '../components/progressLine/ProgressLine';
 import { MODULE_ONE, MODULE_TWO } from '../utils/constants';
-import { Question, UserAnswerType } from '../types';
+import { Question } from '../types';
 import QuestionContainer from '../components/questionConatiner/QuestionContainer';
 
 const Test = () => {

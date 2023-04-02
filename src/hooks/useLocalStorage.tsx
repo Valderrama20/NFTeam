@@ -2,6 +2,14 @@ import { useState } from 'react';
 
 type Value<T> = T | undefined;
 
+/**
+ * useLocalStorage Para almacenar datos en un estado y mantener el valor en el localstorage.
+ *
+ * @param {key} key key para almacenar dato
+ * @param {initialValue} initialValue valor inicial
+ * @return {[storedValue,setValue]} Misma funcionalidad que el useState
+ */
+
 function useLocalStorage<T>(
   key: string,
   initialValue?: Value<T>
