@@ -3,9 +3,10 @@ import ABI from './IntroCrypto.json';
 export const URL_CEDALIO =
   'https://kod-nft-certificates.gateway.cedalio.dev/auth';
 
-export const CONTRACT_DYNAMIC = '0xF4C3142b77De496a21b6D4C28001efFdbB38E0F4';
+export const CONTRACT_DYNAMIC = '0x98D5110CDBeF8Cdd16693127671b5351bcF9B57E';
 
-export const SERVER = 'https://58e6-179-43-81-54.sa.ngrok.io';
+export const SERVER_MINT =
+  'http://progressprotocolbackenv5-env.us-east-1.elasticbeanstalk.com/progress/mint';
 
 export const USER = {
   fullname: 'Jose Garcia',
@@ -78,23 +79,23 @@ export const MODULE_TWO = [
 
 export const DATA_CARD = [
   {
-    png: "https://res.cloudinary.com/dlwurkglp/image/upload/v1680450012/Vector_2_yqltpt.png",
-    title: "Personalizacion",
-    text: "Cada NFT es unico y esta  personalizado para el usuario que lo posee"
+    png: 'https://res.cloudinary.com/dlwurkglp/image/upload/v1680450012/Vector_2_yqltpt.png',
+    title: 'Personalizacion',
+    text: 'Cada NFT es unico y esta  personalizado para el usuario que lo posee',
   },
   {
-    png: "https://res.cloudinary.com/dlwurkglp/image/upload/v1680450011/Vector_1_qovoir.png",
-    title: "Certificacion",
-    text: "Los NFTs son una excelente manera de certificar el conocimiento adquirido en los cursos"
+    png: 'https://res.cloudinary.com/dlwurkglp/image/upload/v1680450011/Vector_1_qovoir.png',
+    title: 'Certificacion',
+    text: 'Los NFTs son una excelente manera de certificar el conocimiento adquirido en los cursos',
   },
   {
-    png : "https://res.cloudinary.com/dlwurkglp/image/upload/v1680450012/Group_24_lvd6x2.png",
-    title: "Transparencia",
-    text: "Los usuarios pueden demostrar su progreso y conocimientos ante cualquier persona de una forma clara y transparente."
+    png: 'https://res.cloudinary.com/dlwurkglp/image/upload/v1680450012/Group_24_lvd6x2.png',
+    title: 'Transparencia',
+    text: 'Los usuarios pueden demostrar su progreso y conocimientos ante cualquier persona de una forma clara y transparente.',
   },
   {
-    png : "https://res.cloudinary.com/dlwurkglp/image/upload/v1680450011/Vector_ourtg1.png",
-    title: "Valor",
-    text: "Los NFTs dinámicos son valiosos y únicos, lo que los convierte en una excelente manera de demostrar habilidades y conocimientos."
-  }
-]
+    png: 'https://res.cloudinary.com/dlwurkglp/image/upload/v1680450011/Vector_ourtg1.png',
+    title: 'Valor',
+    text: 'Los NFTs dinámicos son valiosos y únicos, lo que los convierte en una excelente manera de demostrar habilidades y conocimientos.',
+  },
+];

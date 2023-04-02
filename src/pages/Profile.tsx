@@ -14,7 +14,7 @@ const Profile = () => {
 
   const titleText = courses ? 'Cursos' : 'Certificados';
   const selectedList = courses ? USER.courses : USER.certificates;
-  return address ? (
+  return (
     <div>
       <div className={style.logo}></div>
       <div className={style.user}>
@@ -46,8 +46,6 @@ const Profile = () => {
       </div>
       {/* <ModifiqueInfoUser /> */}
     </div>
-  ) : (
-    <div>Conectar Wallet</div>
   );
 };
 
