@@ -5,6 +5,7 @@ import useCedalio from '../../hooks/useCedalio';
 import { useSigner } from '@thirdweb-dev/react';
 import { handleAuth } from '../../apis';
 import useLocalStorage from '../../hooks/useLocalStorage';
+import { useState } from 'react';
 
 /**
  * handleAuth Devuelve un token para utilizar en Cedalio.
@@ -21,6 +22,7 @@ const Login = ({ isOpen, setOpen }: any) => {
   const [fullName, setFullName] = useLocalStorage('fullName', '');
   const [email, setEmail] = useLocalStorage('email', '');
   const { requestDeployToGateway } = useCedalio();
+  const [isAuthLogin, setIsAuthLogin] = useState(false);
   const signer = useSigner();
 
   const onSetName = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,10 +39,12 @@ const Login = ({ isOpen, setOpen }: any) => {
 
   const onAuth = async () => {
     if (address && signer) {
+      setIsAuthLogin(true);
       const token = await handleAuth(signer!, address);
       await requestDeployToGateway(address, token);
       setToken(token);
       setOpen(false);
+      setIsAuthLogin(false);
       navigate('profile');
     }
   };
@@ -91,7 +95,7 @@ const Login = ({ isOpen, setOpen }: any) => {
           </button>
           {showSign() && (
             <button className={style.btn} type="button" onClick={onAuth}>
-              Sign Wallet
+              {isAuthLogin ? 'Deploying' : 'Sign Wallet'}
             </button>
           )}
         </div>

@@ -3,7 +3,7 @@ import Login from '../login/Login';
 import style from './Navbar.module.css';
 import { useState } from 'react';
 const Navbar = () => {
-  const { address, shortAddress } = useWallet();
+  const { shortAddress } = useWallet();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {
@@ -13,7 +13,9 @@ const Navbar = () => {
     <>
       <nav className={style.nav}>
         <h3>Proof Of Progress</h3>
-        <button onClick={toggleModal}>Conectar Wallet</button>
+        <button onClick={toggleModal}>
+          {shortAddress ? shortAddress : 'Conectar Wallet'}
+        </button>
       </nav>
 
       {/* MODAL */}

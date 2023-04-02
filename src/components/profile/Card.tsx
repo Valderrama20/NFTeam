@@ -4,7 +4,7 @@ import style from './Card.module.css';
 import Progress from '../progress/Progress';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import { ethers } from 'ethers';
-import { RPC_URL, SERVER, SERVER_MINT } from '../../utils/constants';
+import { RPC_URL, SERVER } from '../../utils/constants';
 import axios from 'axios';
 
 const Card = ({
@@ -17,6 +17,8 @@ const Card = ({
 }: CoursesType) => {
   const [viewProgress, setViewProgress] = useState(false);
   const [isActive, setIsActive] = useLocalStorage('isactive', false);
+  const [isMinting, setIsMinting] = useState(false);
+
   const [IPSFValue, setIPSFValue] = useLocalStorage<{
     level: string;
     img: string;
@@ -61,6 +63,7 @@ const Card = ({
       if (isActive) {
         setViewProgress(!viewProgress);
       } else {
+        setIsMinting(true);
         const payload = {
           address,
           courseAddress: contract,
@@ -81,6 +84,7 @@ const Card = ({
             setIPSFValue({ level: data.name, img: data.image });
             setIsActive(true);
             setViewProgress(true);
+            setIsMinting(false);
           }
         }
       }
@@ -92,7 +96,13 @@ const Card = ({
       <div className={style.card} onClick={handleCourse}>
         <img src={img} alt="" />
         <div className={style.data}>
-          <h3>{isLoading ? 'Loading...' : isActive ? name : `Mint ${name}`}</h3>
+          {isMinting ? (
+            <h3>Minting Token</h3>
+          ) : (
+            <h3>
+              {isLoading ? 'Loading...' : isActive ? name : `Mint ${name}`}
+            </h3>
+          )}
         </div>
         <div className={style.progress}>
           <div className={style.progress_bar}>
