@@ -11,12 +11,20 @@ type LoginType = {
   isOpen: boolean;
 };
 
+/**
+ * handleAuth Devuelve un token para utilizar en Cedalio.
+ *
+ * @param {signer} signer El signer de la wallet conectada
+ * @param {address} address La wallet address del usuario
+ * @return {token} token es un codigo devuelto por el server de Cedalio para poder deployar una base de datos.
+ */
+
 const Login = ({ isOpen }: LoginType) => {
   const { handleConnect, isLoading, isConnected, address } = useWallet();
   const [token, setToken] = useLocalStorage('token', '');
   const [fullName, setFullName] = useLocalStorage("fullName","")
   const [emails, setEmails] = useLocalStorage("email","")
-  const { requestDeployToGateway } = useCedalio({ address, token });
+  const { requestDeployToGateway } = useCedalio();
   const signer = useSigner();
 
 
@@ -35,6 +43,7 @@ const Login = ({ isOpen }: LoginType) => {
   const onAuth = async () => {
     if (address && signer) {
       const token = await handleAuth(signer!, address);
+      await requestDeployToGateway(address, token);
       setToken(token);
     }
   };

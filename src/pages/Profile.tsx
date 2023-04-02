@@ -1,16 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import style from '../styles/Profile.module.css';
-import { CONTRACT_DYNAMIC, USER } from '../utils/constants';
+import { USER } from '../utils/constants';
 import Card from '../components/profile/Card';
-import { ethers } from 'ethers';
-import ABI from '../utils/IntroCrypto.json';
-import useLocalStorage from '../hooks/useLocalStorage';
 import useWallet from '../hooks/useWallet';
 
 const Profile = () => {
   const [courses, setCourses] = useState(true);
   const { address } = useWallet();
-  const [userData, setUserData] = useLocalStorage('user', undefined);
 
   const selectCourses = (isCourse: boolean) => {
     setCourses(isCourse);
@@ -51,7 +47,7 @@ const Profile = () => {
       {/* <ModifiqueInfoUser /> */}
     </div>
   ) : (
-    <div>Loading...</div>
+    <div>Conectar Wallet</div>
   );
 };
 

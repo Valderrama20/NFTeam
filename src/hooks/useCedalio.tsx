@@ -1,49 +1,22 @@
-import { gql, useMutation } from '@apollo/client';
-import { useState, useEffect } from 'react';
+import { useMutation } from '@apollo/client';
+import { useState } from 'react';
+import { CREATE_USER } from '../graphql';
 
-const CREATE_USER = gql`
-  mutation CreateUser(
-    $id: UUID!
-    $fullname: String!
-    $email: String!
-    $type: String!
-    $status: String
-  ) {
-    createUser(
-      user: {
-        id: $id
-        email: $email
-        fullname: $fullname
-        type: $type
-        status: $status
-      }
-    ) {
-      user {
-        id
-        email
-        type
-        status
-      }
-    }
-  }
-`;
-
-type Value<T> = T | undefined;
-
-const useCedalio = ({
-  address,
-  token,
-}: {
-  address: string;
-  token: Value<string>;
-}) => {
+const useCedalio = () => {
   const [contractAddress, setContractAddress] = useState('');
   const [deployed, setDeployed] = useState(false);
   const [isDeploying, setIsDeploying] = useState(false);
   const [uri, setUri] = useState('');
   const [createUser, { data, loading, error }] = useMutation(CREATE_USER);
 
-  async function requestDeployToGateway(address: string) {
+  /**
+   * requestDeployToGateway Realiza el deploy en una DB de cedalio.
+   *
+   * @param {address} address addres del usuario
+   * @param {token} token Token generado por el handleAuth
+   * @return {user} Internamete realiza un deploy y devuelve los datos de un usuario
+   */
+  async function requestDeployToGateway(address: string, token: string) {
     if (address) {
       const url = `${import.meta.env.VITE__GRAPHQL_GATEWAY_BASE_URL}/deploy`;
       const payload = {
@@ -88,25 +61,6 @@ const useCedalio = ({
       );
     }
   }
-
-  useEffect(() => {
-    const deployed = Boolean(localStorage.getItem('deployed'));
-    const contractAddress = localStorage.getItem('contractAddress');
-    const deploymentId = localStorage.getItem('deploymentId');
-    if (deployed && contractAddress && deploymentId) {
-      setUri(
-        `${String(
-          import.meta.env.VITE__GRAPHQL_GATEWAY_BASE_URL
-        )}/${deploymentId}/graphql`
-      );
-      setDeployed(deployed);
-      setContractAddress(contractAddress);
-    } else if (address) {
-      requestDeployToGateway(address);
-    } else {
-      return;
-    }
-  }, [address]);
 
   return { requestDeployToGateway };
 };

@@ -1,34 +1,12 @@
-import { gql, useQuery } from '@apollo/client';
-import { useEffect, useState } from 'react';
 import Footer from '../components/footer/Footer';
 import style from './Home.module.css'
 import Carrusel from '../components/carrusel/Carrusel';
 import InfoCard from '../components/infoCard/InfoCard';
 import { DATA_CARD } from '../utils/constants';
 
-const GET_USER = gql`
-  query GetUSER {
-    allUserDatas {
-      id
-      fullname
-      email
-      type
-      status
-    }
-  }
-`;
 
 const Home = () => {
-  // const { loading, error, data } = useQuery(GET_USER);
-  // const [userData, setUserData] = useState('');
-
-  // useEffect(() => {
-  //   if (data) setUserData(data.allUserDatas);
-  // }, [data]);
-
-  // if (loading) return <p>Loading...</p>;
-  // if (error) return <p>Error : {error.message}</p>;
-
+ 
 
   return <div className={style.father}>
     <div>
