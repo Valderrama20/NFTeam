@@ -2,7 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 76px
+  height: 60px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  
+  
 }
 
 .nav h3 {
@@ -18,9 +23,9 @@
   padding: 10px 19px;
   border: none;
   border-radius: 5px;
-  width: 200px;
-  height: 42px;
-  font-size: 20px;
+  width: 180px;
+  height: 35px;
+  font-size: 18px;
   color: white;
   background: #4CCBAB;
 }

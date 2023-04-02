@@ -22,19 +22,20 @@ type LoginType = {
 const Login = ({ isOpen }: LoginType) => {
   const { handleConnect, isLoading, isConnected, address } = useWallet();
   const [token, setToken] = useLocalStorage('token', '');
-
+  const [fullName, setFullName] = useLocalStorage("fullName","")
+  const [emails, setEmails] = useLocalStorage("email","")
   const { requestDeployToGateway } = useCedalio();
   const signer = useSigner();
 
-  const [dataUser, setDataUser] = useState<UserType>({
-    fullName: '',
-    email: '',
-  });
 
-  const setData = (data: React.ChangeEvent<HTMLInputElement>) => {
-    setDataUser({ ...dataUser, [data.target.name]: data.target.value });
-  };
+  const setName = (event:React.ChangeEvent<HTMLInputElement>, ) => {
+   setFullName(event.target.value)
+  }
 
+  const setEmail = (event:React.ChangeEvent<HTMLInputElement>, ) => {
+    setEmails(event.target.value)
+   }
+ 
   const onConnect = async () => {
     await handleConnect();
   };
@@ -59,11 +60,11 @@ const Login = ({ isOpen }: LoginType) => {
       <div>
         <div className={style.input}>
           <label htmlFor="">Full Name</label>
-          <input type="text" name="fullName" onChange={setData} />
+          <input type="text" name="fullName" onChange={setName} />
         </div>
         <div className={style.input}>
           <label htmlFor="">Email</label>
-          <input type="text" name="email" onChange={setData} />
+          <input type="text" name="email" onChange={setEmail} />
         </div>
       </div>
       <div className={style.btnContainer}>

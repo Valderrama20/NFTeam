@@ -1,0 +1,41 @@
+:root {
+    --font-color: #4CCBAB;
+  }
+
+
+.card {
+    border: 1px solid var(--font-color);
+    display:  inline-block;
+    height: 200px;
+    width: 200px;
+   padding: 20px;
+   margin: 30px 10px 0px 10px;
+   border-radius: 20px;
+   
+}
+
+.png {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center ;
+    justify-content: center;
+    background-color: var(--font-color);
+    border-radius: 50%;
+}
+
+.title {
+    color: var(--font-color) ;
+    font-weight: 600;
+    text-align: start;
+    display: inline-block;
+    line-height: 40px;
+}
+
+.text {
+    color: var(--font-color)  ;
+    text-align: start;
+    font-size: 12px;
+    display: inline-block;
+    
+}
