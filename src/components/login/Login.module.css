@@ -1,4 +1,35 @@
-body {
+:root {
+  
+  --color: #4CCBAB;
+
+  }
+
+.button {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  height: 22px;
+  border-radius: 50px;
+  background-color: var(--color);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.title {
+  color: var(--color);
+  font-size: 30px;
+  font-weight: 700;
+  border-bottom: 3px solid var(--color);
+}
+
+.fondo {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  backdrop-filter: blur(3px);
+  top: 0;
+ 
 }
 
 .form {
@@ -14,10 +45,11 @@ body {
   -moz-box-shadow: 6px 5px 29px -14px rgba(0, 0, 0, 0.75);
   box-shadow: 6px 5px 29px -14px rgba(0, 0, 0, 0.75);
  
-  left: 0;
-  bottom: 0;
+  top: 100px;
   right: 0;
+  left: 0;
   margin: auto;
+  
 }
 
 .input {
@@ -29,6 +61,7 @@ body {
 .input label {
   margin: 10px 0;
   font-weight: 500;
+  color: var(--color);
 }
 
 .input input {
@@ -44,7 +77,9 @@ body {
   padding: 6px 0;
   width: 100%;
   max-width: 120px;
-  background-color: black;
+  font-weight: 700;
+  background-color: var(--color);
+  border: none  ;
   color: white;
   cursor: pointer;
   border-radius: 5px;

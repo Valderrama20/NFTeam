@@ -15,7 +15,7 @@ const Navbar = () => {
       </nav>
 
       {/* MODAL */}
-      <Login isOpen={isModalOpen} />
+      <Login isOpen={isModalOpen} setOpen={toggleModal}/>
     </>
   );
 };

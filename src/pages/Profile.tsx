@@ -3,10 +3,12 @@ import style from '../styles/Profile.module.css';
 import { USER } from '../utils/constants';
 import Card from '../components/profile/Card';
 import useWallet from '../hooks/useWallet';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 const Profile = () => {
   const [courses, setCourses] = useState(true);
   const { address } = useWallet();
+  const [fullName] = useLocalStorage("fullName","")
 
   const selectCourses = (isCourse: boolean) => {
     setCourses(isCourse);
@@ -19,7 +21,7 @@ const Profile = () => {
       <div className={style.logo}></div>
       <div className={style.user}>
         <img src={USER.img} alt="profile img" />
-        <label htmlFor="">{`${USER.fullname}`}</label>
+        <label htmlFor="">{fullName}</label>
       </div>
       <div className={style.certificates}>
         <div className={style.barra}>
