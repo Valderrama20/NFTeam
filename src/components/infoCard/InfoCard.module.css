@@ -7,16 +7,19 @@
     border: 1px solid var(--font-color);
     display:  inline-block;
     height: 200px;
-    width: 150px;
+    width: 200px;
    padding: 20px;
    margin: 30px 10px 0px 10px;
    border-radius: 20px;
    
 }
 
-.stickers {
+.png {
     height: 50px;
     width: 50px;
+    display: flex;
+    align-items: center ;
+    justify-content: center;
     background-color: var(--font-color);
     border-radius: 50%;
 }
