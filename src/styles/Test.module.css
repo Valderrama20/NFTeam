@@ -8,3 +8,21 @@
   justify-content: center;
   width: 100%;
 }
+
+.btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 19px;
+  gap: 10px;
+  color: white;
+  width: 201px;
+  height: 42px;
+  left: 840px;
+  top: 615px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #000000;
+  border-radius: 6px;
+}

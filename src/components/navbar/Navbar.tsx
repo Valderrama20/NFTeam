@@ -1,7 +1,9 @@
+import useWallet from '../../hooks/useWallet';
 import Login from '../login/Login';
 import style from './Navbar.module.css';
 import { useState } from 'react';
 const Navbar = () => {
+  const { address, shortAddress } = useWallet();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {
@@ -15,7 +17,7 @@ const Navbar = () => {
       </nav>
 
       {/* MODAL */}
-      <Login isOpen={isModalOpen} setOpen={toggleModal}/>
+      <Login isOpen={isModalOpen} setOpen={toggleModal} />
     </>
   );
 };

@@ -89,7 +89,6 @@
 .data h3 {
   font-weight: 600;
   font-size: 15px;
-  line-height: 0px;
 }
 
 .data p {
@@ -100,11 +99,11 @@
 }
 
 /* -------------progress-----------------*/
- .progress{
+.progress {
   display: flex;
   align-items: center;
   padding: 5px;
- }
+}
 
 .progress_bar {
   width: 80%;
@@ -112,7 +111,6 @@
   background-color: #f0f0f0;
   border-radius: 0.5rem;
   overflow: hidden;
-  
 }
 
 .progresss {

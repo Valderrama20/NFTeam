@@ -1,26 +1,26 @@
 import { useState } from 'react';
 import style from '../styles/Profile.module.css';
-import { USER } from '../utils/constants';
 import Card from '../components/profile/Card';
 import useWallet from '../hooks/useWallet';
 import useLocalStorage from '../hooks/useLocalStorage';
+import { CERTIFICATES, TESTS, USER_IMG } from '../utils/constants';
 
 const Profile = () => {
   const [courses, setCourses] = useState(true);
   const { address } = useWallet();
-  const [fullName] = useLocalStorage("fullName","")
+  const [fullName] = useLocalStorage('fullName', '');
 
   const selectCourses = (isCourse: boolean) => {
     setCourses(isCourse);
   };
 
   const titleText = courses ? 'Cursos' : 'Certificados';
-  const selectedList = courses ? USER.courses : USER.certificates;
-  return address ? (
+  const selectedList = courses ? TESTS : CERTIFICATES;
+  return (
     <div>
       <div className={style.logo}></div>
       <div className={style.user}>
-        <img src={USER.img} alt="profile img" />
+        <img src={USER_IMG} alt="profile img" />
         <label htmlFor="">{fullName}</label>
       </div>
       <div className={style.certificates}>
@@ -48,8 +48,6 @@ const Profile = () => {
       </div>
       {/* <ModifiqueInfoUser /> */}
     </div>
-  ) : (
-    <div>Conectar Wallet</div>
   );
 };
 
