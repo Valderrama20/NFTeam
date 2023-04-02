@@ -11,7 +11,7 @@ const Home = () => {
           <div className={style.title}>
             <div>
               <h1> Crea tus cursos </h1>
-              <p>
+              <p style={{ maxWidth: '800px' }}>
                 Vincula tus cursos a nuestra plataforma y <br /> permite que tus
                 usuarios registren su progreso con un NFT dinámico que irà
                 evolucionado a la par de su aprendizaje
@@ -42,6 +42,9 @@ const Home = () => {
           <img
             src="https://res.cloudinary.com/dlwurkglp/image/upload/v1680458534/Dise%C3%B1o_sin_t%C3%ADtulo_1_e1vcde.gif"
             alt=""
+            style={{
+              width: 'fit-content',
+            }}
           />
         </div>
       </div>

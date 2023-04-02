@@ -65,9 +65,18 @@ const Login = ({ isOpen, setOpen }: any) => {
   return isOpen ? (
     <div className={style.fondo}>
       <div className={style.form}>
-        <button className={style.button} onClick={setOpen}>
-          X
-        </button>
+        <div
+          style={{
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'flex-end',
+            marginRight: '50px',
+          }}
+        >
+          <button className={style.button} onClick={setOpen}>
+            X
+          </button>
+        </div>
         <label className={style.title}>register</label>
         <div>
           <div className={style.input}>

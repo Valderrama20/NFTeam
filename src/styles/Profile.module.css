@@ -54,6 +54,7 @@
   cursor: pointer;
   padding: 10px 20px;
   background-color: transparent;
+  color: black;
 }
 
 .btn button:nth-child(1) {

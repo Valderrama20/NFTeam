@@ -1,13 +1,12 @@
 :root {
-  
-  --color: #4CCBAB;
-
-  }
+  --color: #4ccbab;
+}
 
 .button {
-  position: absolute;
-  right: 20px;
-  top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
   height: 22px;
   border-radius: 50px;
   background-color: var(--color);
@@ -29,7 +28,6 @@
   width: 100%;
   backdrop-filter: blur(3px);
   top: 0;
- 
 }
 
 .form {
@@ -44,12 +42,11 @@
   -webkit-box-shadow: 6px 5px 29px -14px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 6px 5px 29px -14px rgba(0, 0, 0, 0.75);
   box-shadow: 6px 5px 29px -14px rgba(0, 0, 0, 0.75);
- 
+
   top: 100px;
   right: 0;
   left: 0;
   margin: auto;
-  
 }
 
 .input {
@@ -79,7 +76,7 @@
   max-width: 120px;
   font-weight: 700;
   background-color: var(--color);
-  border: none  ;
+  border: none;
   color: white;
   cursor: pointer;
   border-radius: 5px;
