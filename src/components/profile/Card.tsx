@@ -4,7 +4,7 @@ import style from './Card.module.css';
 import Progress from '../progress/Progress';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import { ethers } from 'ethers';
-import { SERVER_MINT } from '../../utils/constants';
+import { RPC_URL, SERVER, SERVER_MINT } from '../../utils/constants';
 import axios from 'axios';
 
 const Card = ({
@@ -27,8 +27,8 @@ const Card = ({
     const getData = async () => {
       try {
         if (address) {
-          const rpcUrl = 'https://rpc-mumbai.maticvigil.com'; // Url de la red Mumbai
-          const provider = new ethers.providers.JsonRpcProvider(rpcUrl);
+          // Url de la red Mumbai
+          const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
           const courseContract = new ethers.Contract(contract, abi, provider);
           // balanceOf Me dice si el usuario inicio Curso o no. Recibe un address como parameter
           const startedCourse = await courseContract.balanceOf(address);
@@ -65,16 +65,24 @@ const Card = ({
           address,
           courseAddress: contract,
         };
-        await axios
-          .post(SERVER_MINT, payload)
-          .then(response => {
-            console.log(response.data);
+        const result = await axios.post(`${SERVER}/mint`, payload);
+        if (result.status === 200) {
+          // Url de la red Mumbai
+          const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
+          const courseContract = new ethers.Contract(contract, abi, provider);
+          // balanceOf Me dice si el usuario inicio Curso o no. Recibe un address como parameter
+          const startedCourse = await courseContract.balanceOf(address);
+          if (startedCourse.toString() === '1') {
+            //  Metodo para obtener token_id con el cual vamos a obtener la data del IPSF
+            const token_id = await courseContract.tokenId(address);
+            // tokenURI para obtener el endpoint de ipsf con la info del usuario en el curso. Recibe un tokenId como parameter
+            const ipsfEndpoint = await courseContract.tokenURI(token_id);
+            const { data } = await axios.get(ipsfEndpoint);
+            setIPSFValue({ level: data.name, img: data.image });
             setIsActive(true);
             setViewProgress(true);
-          })
-          .catch(error => {
-            console.error(error);
-          });
+          }
+        }
       }
     }
   };

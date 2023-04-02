@@ -14,14 +14,12 @@ const Progress = ({
   const navigate = useNavigate();
   const levelIndex = level ? Number(level.replace('Nivel ', '')) : 0;
   const onStartTest = (isDisabled: boolean, path: string) => {
-    console.log(path);
     if (!isDisabled) {
       alert('Curso no habilitado');
     } else {
       navigate(`/test/${path}`);
     }
   };
-  console.log(level);
 
   return (
     <div className={style.father}>
