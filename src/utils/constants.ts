@@ -113,7 +113,7 @@ export const MODULE_TWO = [
 
 export const DATA_CARD = [
   {
-    png: 'https://res.cloudinary.com/dlwurkglp/image/upload/v1680450012/Vector_2_yqltpt.png',
+    png: 'https://res.clogit udinary.com/dlwurkglp/image/upload/v1680450012/Vector_2_yqltpt.png',
     title: 'Personalizacion',
     text: 'Cada NFT es unico y esta  personalizado para el usuario que lo posee',
   },

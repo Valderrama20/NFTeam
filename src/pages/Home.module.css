@@ -67,7 +67,7 @@ background: linear-gradient(90deg, rgba(52,203,212,1) 9%, rgba(76,203,171,1) 96%
 }
 
 .carrusel img{
-   max-width: 218vh;
+   max-width: 100%;
 }
 .carrusel h3 {
    color: #4CCBAB;
