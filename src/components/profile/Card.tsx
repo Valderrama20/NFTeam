@@ -30,10 +30,8 @@ const Card = ({
           const rpcUrl = 'https://rpc-mumbai.maticvigil.com'; // Url de la red Mumbai
           const provider = new ethers.providers.JsonRpcProvider(rpcUrl);
           const courseContract = new ethers.Contract(contract, abi, provider);
-          console.log({ courseContract });
           // balanceOf Me dice si el usuario inicio Curso o no. Recibe un address como parameter
           const startedCourse = await courseContract.balanceOf(address);
-          console.log({ startedCourse: startedCourse.toString() });
           if (startedCourse.toString() === '1') {
             //  Metodo para obtener token_id con el cual vamos a obtener la data del IPSF
             const token_id = await courseContract.tokenId(address);

@@ -32,6 +32,11 @@ export const USER = {
   ],
 };
 
+export const TESTS = [
+  { id: 'btc', name: 'Introduccion a Bitcoin' },
+  { id: 'eth', name: 'Introduccion a Ethereum' },
+];
+
 export const MODULE_ONE = [
   {
     index: 0,
