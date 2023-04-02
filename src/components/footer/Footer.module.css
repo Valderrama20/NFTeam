@@ -1,0 +1,86 @@
+
+.father {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.one p{
+   font-size: 30px;
+   font-weight:500;
+   line-height: 0;
+}
+
+.two { 
+    
+    background: rgb(52,203,212);
+background: linear-gradient(90deg, rgba(52,203,212,1) 35%, rgba(76,203,172,1) 90%);
+
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.btn {
+    padding: 5px 10px;
+    background-color: white;
+    display: inline-block;
+    border-radius: 10px;
+    padding-right: 50px;
+    position: relative;
+
+}
+
+.btn input{
+    border: none;
+    height: 30px;
+    width: 500px;
+    font-weight: 700;
+    font-size: 20px ;
+    padding: 0 10px ;
+    color: rgb(95, 95, 95);
+    
+    }
+.btn input:focus{
+    outline: none;;
+        }
+
+.btn button{
+  border: none;
+  background: black;
+  height: 35px;
+  width: 45px;
+  position: absolute;
+  right:5px;
+  top: 3px;
+color: white; 
+font-size: 20px;
+border-radius: 5px;
+}
+
+.three {
+
+    background: rgb(52,203,212);
+background: linear-gradient(90deg, rgba(52,203,212,1) 35%, rgba(76,203,172,1) 90%);
+    display: flex;
+    height: 200px;
+    width: 100%;
+    margin-top: 1px;
+    justify-content: center;
+    
+}
+
+.three div{
+  padding: 20px 30px;
+  color: white;
+}
+.three ul {
+  list-style: none;
+  padding-left: 0;
+}
+.three p {
+    font-weight: 800;
+}
+
+
+
+

@@ -9,14 +9,14 @@ export const USER = {
     {
       name: 'HTML',
       img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpngGRjYX1ca7qAADU3K6eGLj7ShQE3L2otdzfryl_Y9Ht2QRoQKYQbsXd36XIxMbYOw0&usqp=CAU',
-      percentage: '20%',
+      percentage: '20',
     },
   ],
   certificates: [
     {
       name: 'CSS',
       img: 'https://th.bing.com/th/id/OIP.3SFjN9uoszUEoOZ0ilfYOQAAAA?pid=ImgDet&rs=1',
-      percentage: '100%',
+      percentage: '100',
     },
   ],
 };
