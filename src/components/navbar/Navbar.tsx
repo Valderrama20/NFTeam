@@ -3,7 +3,7 @@ import Login from '../login/Login';
 import style from './Navbar.module.css';
 import { useState } from 'react';
 const Navbar = () => {
-  const { address, shortAddress } = useWallet();
+  const { shortAddress } = useWallet();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {

@@ -19,6 +19,7 @@
     background: white;
     box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
     height: 100px;
+    margin: 0 20px;
     margin: auto;
     overflow: hidden;
     position: relative;
@@ -50,4 +51,6 @@
   .slider .slide {
     height: 100px;
     width: 250px;
+    background: red;
+     margin: 20px;
   }
