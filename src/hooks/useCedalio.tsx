@@ -43,8 +43,6 @@ const useCedalio = ({
   const [uri, setUri] = useState('');
   const [createUser, { data, loading, error }] = useMutation(CREATE_USER);
 
-  console.log({ token, address });
-
   async function requestDeployToGateway(address: string) {
     if (address) {
       const url = `${import.meta.env.VITE__GRAPHQL_GATEWAY_BASE_URL}/deploy`;
@@ -76,8 +74,6 @@ const useCedalio = ({
         deployment_id,
       }: { contract_address: string; deployment_id: string } =
         await response.json();
-
-      console.log({ data });
 
       localStorage.setItem('deploymentId', deployment_id);
       localStorage.setItem('contractAddress', contract_address);

@@ -1,5 +1,11 @@
+import ABI from './IntroCrypto.json';
+
 export const URL_CEDALIO =
   'https://kod-nft-certificates.gateway.cedalio.dev/auth';
+
+export const CONTRACT_DYNAMIC = '0xF4C3142b77De496a21b6D4C28001efFdbB38E0F4';
+
+export const SERVER = 'https://58e6-179-43-81-54.sa.ngrok.io';
 
 export const USER = {
   fullname: 'Jose Garcia',
@@ -9,14 +15,18 @@ export const USER = {
     {
       name: 'HTML',
       img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpngGRjYX1ca7qAADU3K6eGLj7ShQE3L2otdzfryl_Y9Ht2QRoQKYQbsXd36XIxMbYOw0&usqp=CAU',
-      percentage: '20',
+      percentage: '0%',
+      contract: CONTRACT_DYNAMIC,
+      abi: ABI,
     },
   ],
   certificates: [
     {
       name: 'CSS',
       img: 'https://th.bing.com/th/id/OIP.3SFjN9uoszUEoOZ0ilfYOQAAAA?pid=ImgDet&rs=1',
-      percentage: '100',
+      percentage: '100%',
+      contract: CONTRACT_DYNAMIC,
+      abi: ABI,
     },
   ],
 };
