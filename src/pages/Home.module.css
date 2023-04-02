@@ -59,22 +59,33 @@ background: linear-gradient(90deg, rgba(52,203,212,1) 9%, rgba(76,203,171,1) 96%
 
 
 .detailsTwo {
-    background: rgb(76,203,172);
-    background: linear-gradient(90deg, rgba(76,203,172,1) 0%, rgba(52,203,212,1) 79%);
+     background-color: #4CCBAB;
     height: auto;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
 
-.detailsTwo img {
-    height: 300px;
+.carrusel img{
+   max-width: 218vh;
+}
+.carrusel h3 {
+   color: #4CCBAB;
+   font-size: 56px;
+   font-weight: 500;
+   margin-left: 50px;
+   font-weight: 50px;
 
 }
 
+.detailsTwo img {
+    height: 300px;
+     
+}
+
 .detailsTwo h3 {
- font-size: 40px;
- font-weight: 400;
+ font-size: 50px;
+ font-weight: 500;
  line-height: 50px;
  color: white;
 }

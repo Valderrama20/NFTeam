@@ -12,10 +12,8 @@ const Navbar = () => {
   return (
     <>
       <nav className={style.nav}>
-        <h3>DynamiProof</h3>
-        <button onClick={toggleModal}>
-          {shortAddress ? shortAddress : 'Conectar Wallet'}
-        </button>
+        <h3>Proof Of Progress</h3>
+        <button onClick={toggleModal}>Conectar Wallet</button>
       </nav>
 
       {/* MODAL */}

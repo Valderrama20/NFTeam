@@ -5,16 +5,14 @@
     flex-direction: column;
 }
 .one p{
+    color: #4CCBAB;
    font-size: 30px;
    font-weight:500;
    line-height: 0;
 }
 
 .two { 
-    
-    background: rgb(52,203,212);
-background: linear-gradient(90deg, rgba(52,203,212,1) 35%, rgba(76,203,172,1) 90%);
-
+   background-color: #4CCBAB;
     text-align: center;
     padding: 20px 0;
     width: 100%;
@@ -37,7 +35,7 @@ background: linear-gradient(90deg, rgba(52,203,212,1) 35%, rgba(76,203,172,1) 90
     font-weight: 700;
     font-size: 20px ;
     padding: 0 10px ;
-    color: rgb(95, 95, 95);
+    color: black;
     
     }
 .btn input:focus{
@@ -46,7 +44,7 @@ background: linear-gradient(90deg, rgba(52,203,212,1) 35%, rgba(76,203,172,1) 90
 
 .btn button{
   border: none;
-  background: black;
+  background: #4CCBAB;
   height: 35px;
   width: 45px;
   position: absolute;
@@ -59,8 +57,8 @@ border-radius: 5px;
 
 .three {
 
-    background: rgb(52,203,212);
-background: linear-gradient(90deg, rgba(52,203,212,1) 35%, rgba(76,203,172,1) 90%);
+    
+background-color: #4CCBAB;
     display: flex;
     height: 200px;
     width: 100%;
